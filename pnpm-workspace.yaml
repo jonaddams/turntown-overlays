@@ -1,2 +1,10 @@
+# pnpm 12 fails CI installs (e.g. Vercel) until every install script is
+# explicitly allowed or denied. esbuild's only verifies its binary; the rest
+# ship prebuilt binaries and aren't needed for `ng build`.
+allowBuilds:
+  esbuild: true
+  '@parcel/watcher': false
+  lmdb: false
+  msgpackr-extract: false
 minimumReleaseAgeExclude:
   - '@nutrient-sdk/viewer@1.25.0'
