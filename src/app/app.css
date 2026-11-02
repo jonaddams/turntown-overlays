@@ -1,0 +1,16 @@
+:host { display: flex; height: 100vh; font: 14px/1.4 system-ui, sans-serif; color: #1a1a1a; }
+aside { width: 300px; flex: none; padding: 16px; overflow: auto; border-right: 1px solid #ddd; background: #fafafa; }
+main { flex: 1; height: 100%; position: relative; }
+main.placing { outline: 3px dashed #4537de; outline-offset: -3px; }
+h1 { font-size: 18px; margin: 0 0 6px; }
+h2 { font-size: 13px; text-transform: uppercase; letter-spacing: .04em; color: #555; margin: 20px 0 6px; }
+.hint { color: #666; font-size: 13px; }
+.primary { width: 100%; padding: 8px; border-radius: 6px; border: 0; background: #4537de; color: #fff; font: inherit; cursor: pointer; }
+.primary.on { background: #fbbf24; color: #1a1a1a; }
+ol, ul { list-style: none; padding: 0; margin: 0; }
+ol button { width: 100%; display: flex; justify-content: space-between; padding: 6px 8px; border: 1px solid transparent; border-radius: 6px; background: none; font: inherit; cursor: pointer; text-align: left; }
+ol li.active button { border-color: #fbbf24; background: #fffbeb; }
+.status { text-transform: capitalize; font-size: 11px; padding: 1px 6px; border-radius: 9px; background: #eee; }
+.status.approved { background: #d1fae5; color: #065f46; }
+.status.flagged { background: #ffedd5; color: #9a3412; }
+.log li { font: 12px ui-monospace, monospace; padding: 3px 0; border-bottom: 1px solid #eee; }

@@ -1,0 +1,2 @@
+minimumReleaseAgeExclude:
+  - '@nutrient-sdk/viewer@1.25.0'

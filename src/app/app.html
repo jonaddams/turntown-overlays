@@ -1,0 +1,37 @@
+<aside>
+  <h1>Angular overlays</h1>
+  <p class="hint">
+    Each pin is an Angular component rendered as a Nutrient
+    <code>CustomOverlayItem</code>. It scrolls and zooms with the page; its
+    buttons emit events into this panel.
+  </p>
+
+  <button class="primary" [class.on]="placing()" (click)="placing.set(!placing())">
+    {{ placing() ? 'Click the document to place…' : '+ Add pin' }}
+  </button>
+
+  <h2>Pins</h2>
+  <ol>
+    @for (pin of pins(); track pin.id) {
+      <li [class.active]="pin.id === activeId()">
+        <button (click)="focus(pin)">
+          <span>{{ pin.label }}</span>
+          <span class="status {{ pin.status }}">{{ pin.status }}</span>
+        </button>
+      </li>
+    } @empty {
+      <li class="hint">No pins. Add one.</li>
+    }
+  </ol>
+
+  <h2>Events from overlays</h2>
+  <ul class="log">
+    @for (entry of log(); track $index) {
+      <li>{{ entry }}</li>
+    } @empty {
+      <li class="hint">Use the buttons on a pin.</li>
+    }
+  </ul>
+</aside>
+
+<main #viewer [class.placing]="placing()"></main>
