@@ -47,6 +47,7 @@ Thumbs.db
 .remember/
 
 # Local secrets + the file generated from them
-.env
+.env*
+!.env.example
 src/app/env.ts
 .claude/

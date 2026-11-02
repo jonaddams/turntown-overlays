@@ -1,5 +1,5 @@
 // Writes .env values the browser needs into src/app/env.ts (gitignored).
-// Run via `pnpm start` / `pnpm build`, which load .env with node --env-file-if-exists.
+// Run via `pnpm start` / `pnpm build`, which load .env then .env.local (later wins).
 import { writeFileSync } from 'node:fs';
 
 const key = process.env.NUTRIENT_LICENSE_KEY ?? '';
