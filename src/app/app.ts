@@ -129,7 +129,9 @@ export class App {
     if (type === 'remove') {
       this.pins.update((p) => p.filter((x) => x.id !== pin.id));
     } else {
-      const status = type === 'approve' ? 'approved' : 'flagged';
+      // Pressing the active status button again clears it back to open.
+      const target = type === 'approve' ? 'approved' : 'flagged';
+      const status = pin.status === target ? 'open' : target;
       this.pins.update((p) => p.map((x) => (x.id === pin.id ? { ...x, status } : x)));
     }
     this.record(`${type} -> "${pin.label}" (page ${pin.pageIndex + 1})`);

@@ -50,9 +50,11 @@ export interface PinAction {
         </header>
         <p>Page {{ pin().pageIndex + 1 }} · ({{ pin().x | number: '1.0-0' }}, {{ pin().y | number: '1.0-0' }})</p>
         <div class="actions">
-          <button (click)="action.emit({ pin: pin(), type: 'approve' })">Approve</button>
-          <button (click)="action.emit({ pin: pin(), type: 'flag' })">Flag</button>
-          <button class="ghost" (click)="action.emit({ pin: pin(), type: 'remove' })">Remove</button>
+          <button class="approve" [attr.aria-pressed]="pin().status === 'approved'"
+            (click)="action.emit({ pin: pin(), type: 'approve' })">Approve</button>
+          <button class="flag" [attr.aria-pressed]="pin().status === 'flagged'"
+            (click)="action.emit({ pin: pin(), type: 'flag' })">Flag</button>
+          <button (click)="action.emit({ pin: pin(), type: 'remove' })">Remove</button>
         </div>
       </div>
     }
@@ -82,9 +84,11 @@ export interface PinAction {
     .actions { display: flex; gap: 4px; }
     .actions button {
       flex: 1; font: inherit; padding: 4px; border-radius: 4px; cursor: pointer;
-      border: 1px solid #4537de; background: #4537de; color: #fff;
+      border: 1px solid #ccc; background: #fff; color: #555;
     }
-    .actions .ghost { background: #fff; color: #4537de; }
+    .actions button:hover { border-color: #4537de; color: #4537de; }
+    .actions .approve[aria-pressed='true'] { background: #12805c; border-color: #12805c; color: #fff; }
+    .actions .flag[aria-pressed='true'] { background: #c2410c; border-color: #c2410c; color: #fff; }
   `,
 })
 export class PinCard {
