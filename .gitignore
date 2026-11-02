@@ -51,3 +51,4 @@ Thumbs.db
 !.env.example
 src/app/env.ts
 .claude/
+.vercel
