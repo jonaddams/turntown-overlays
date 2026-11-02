@@ -8,12 +8,16 @@ back into the Angular app.
 
 ```bash
 pnpm install
-pnpm start        # http://localhost:4200
+cp .env.example .env   # optional: add NUTRIENT_LICENSE_KEY
+pnpm start             # http://localhost:4200
 ```
 
 Requires Node 22.12+. Angular 21, `@nutrient-sdk/viewer` 1.25. With no license
-key it runs in trial mode with a watermark. Set `LICENSE_KEY` in
-`src/app/app.ts` to remove it.
+key it runs in trial mode with a watermark. To remove the watermark, put a Web
+SDK key in `.env` as `NUTRIENT_LICENSE_KEY`. `pnpm start` and `pnpm build`
+write it to the gitignored `src/app/env.ts` (see `scripts/env.mjs`). Web SDK
+keys are shipped to the browser and bound to your domains, so this keeps the
+key out of git, not out of the client.
 
 ## What to try
 

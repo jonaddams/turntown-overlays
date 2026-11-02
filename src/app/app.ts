@@ -15,10 +15,8 @@ import {
 } from '@angular/core';
 import type NutrientViewerType from '@nutrient-sdk/viewer';
 import type { Instance } from '@nutrient-sdk/viewer';
+import { NUTRIENT_LICENSE_KEY } from './env'; // generated from .env; empty = trial mode
 import { Pin, PinAction, PinCard } from './pin-card';
-
-// Empty = trial mode (watermarked). Paste a Web SDK key to remove the watermark.
-const LICENSE_KEY = '';
 
 const SEED: Pin[] = [
   { id: 'pin-1', pageIndex: 0, x: 60, y: 150, label: 'Parties', status: 'open' },
@@ -54,7 +52,7 @@ export class App {
         container: this.viewerEl().nativeElement,
         document: '/document.pdf',
         useCDN: true, // WASM + fonts from Nutrient's CDN; see guides/web/self-host-assets to self-host
-        licenseKey: LICENSE_KEY || undefined,
+        licenseKey: NUTRIENT_LICENSE_KEY || undefined,
       });
       // Viewer -> Angular: pressing the page while "placing" drops a new pin there.
       this.instance.addEventListener('page.press', ({ pageIndex, point }) => {
